@@ -1,20 +1,17 @@
 import numpy as np
-
+import tensorflow as tf
 from tensorflow import keras
-from keras.preprocessing.image import ImageDataGenerator as ImgDataGen
+from keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing import image
 
-model_path = 'C:/GitHub/SDE-CAPSTONE-4902/models'
-test_path = 'C:/GitHub/SDE-CAPSTONE-4902/data/asl_alphabet_test/asl_alphabet_test'
-
-model = keras.models.load_model(model_path)
-test_datagen = ImgDataGen(rescale=1. / 255, rotation_range=10, validation_split=0.2)
-
-test_generator = test_datagen.flow_from_directory(
-    directory=test_path,
-    target_size=(256, 256),
-    batch_size=32,
-    class_mode='binary',
-)
-
-predictions = model.predict_classes(X_test)
-print("Predictions done...")
+# model_path = 'C:/GitHub/SDE-CAPSTONE-4902/models/'
+# test_path = 'D:/asl_alphabet_test'
+#
+# target_size = (64, 64)
+# batch_size = 4
+#
+#
+# model = keras.models.load_model('new_model')
+#
+# predict = model.predict(test_path)
+# print("Predictions done...")
