@@ -3,6 +3,9 @@
 from keras.layers import Conv2D, Dense, Dropout, Flatten
 from keras.models import Sequential
 from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.python.client import device_lib
+
+print(device_lib.list_local_devices())
 
 # Imports to view data
 import cv2
@@ -11,6 +14,7 @@ from glob import glob
 from matplotlib import pyplot as plt
 from numpy import floor
 import random
+
 
 
 data_dir = 'D:/asl_alphabet_train'
@@ -43,7 +47,7 @@ model.add(Dense(n_classes, activation='softmax'))
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=["accuracy"])
 
-
+model.summary()
 model.fit(train_generator, epochs=5, validation_data=val_generator)
 
-model.save('new_model')
+model.save('new_model.h5')
